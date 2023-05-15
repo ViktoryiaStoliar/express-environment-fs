@@ -3,7 +3,8 @@ const bodyParser = require('body-parser')
 const { getAllEnvironment, getEnvironmentById, createEnvironment } = require('./servise')
 
 const app = express()
-app.use(bodyParser)
+
+app.use(bodyParser.json())
 
 // • GET “/” – получние всех элементов массива
 
@@ -26,8 +27,8 @@ app.get('/:id', (req, res) => {
 app.post('/', (req, res) => {
     const { label, category, priority } = req.body
     const data = createEnvironment(label, category, priority)
-    res.status(200).send(data)
-}) 
+    res.send(data)
+})
 
 
 // • PUT “/:id” – обновить в массиве объект только в том случае, если есть совпадения с

@@ -15,12 +15,18 @@ function getEnvironmentById(id) {
 }
 
 function createEnvironment(label, category, priority) {
-    
+    const data = JSON.parse(fs.readFileSync(path))
     const obj = {
-        "label": "TypeScript",
-        "category": "programmingLanguages",
-        "priority": 1
+        id: label.toLowerCase(),
+        label: label,
+        category: category,
+        priority: priority
     }
+    //     const filtered = data.filter((el) => el.label.toLowerCase() == label.toLowerCase())
+    //    if()
+    data.push(obj)
+    fs.writeFileSync(path, JSON.stringify(data))
+    return data
 }
 
 module.exports = { getAllEnvironment, getEnvironmentById, createEnvironment } 
