@@ -33,9 +33,9 @@ app.post('/', (req, res) => {
 
 // • PUT “/:id” – обновить в массиве объект только в том случае, если есть совпадения с
 // id. Вернуть клиенту массив и статус
-// app.put('/', (req, res) => {
+app.put('/', (req, res) => {
 
-// })
+})
 
 app.listen(3000, () => {
     console.log('server is running');
